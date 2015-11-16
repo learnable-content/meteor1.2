@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/9.2.png)
+![](headings/9.2.png)
 
 # Event Object
 
