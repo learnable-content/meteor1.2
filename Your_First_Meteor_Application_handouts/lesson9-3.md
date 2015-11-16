@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/9.3.png)
+![](headings/9.3.png)
 
 # Removing Players
 
