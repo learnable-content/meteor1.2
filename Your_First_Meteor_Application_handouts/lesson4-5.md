@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/4.5.png)
+![](headings/4.5.png)
 
 # Retrieving Data
 
