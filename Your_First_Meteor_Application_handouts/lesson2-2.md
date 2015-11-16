@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/2.2.png)
+![](headings/2.2.png)
 
 # Introduction to the Command Line
 
