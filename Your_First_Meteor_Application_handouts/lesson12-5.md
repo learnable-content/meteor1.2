@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/12.5.png)
+![](headings/12.5.png)
 
 # Creating a Remove Player Button
 
