@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/11.4.png)
+![](headings/11.4.png)
 
 # Meteor.publish function
 
