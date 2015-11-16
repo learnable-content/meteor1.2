@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/4.4.png)
+![](headings/4.4.png)
 
 # Inserting Data into a Collection
 
