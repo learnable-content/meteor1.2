@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/5.3.png)
+![](headings/5.3.png)
 
 # Helper Function
 
