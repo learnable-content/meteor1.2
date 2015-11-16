@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/3.3.png)
+![](headings/3.3.png)
 
 # The Local Server
 
