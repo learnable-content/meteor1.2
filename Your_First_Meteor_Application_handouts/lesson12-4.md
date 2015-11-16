@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/12.4.png)
+![](headings/12.4.png)
 
 # Introduction
 
