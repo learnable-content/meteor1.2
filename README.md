@@ -1,53 +1,35 @@
-![](Your_First_Meteor_Application_handouts/headings/6.1.png)
+![](Your_First_Meteor_Application_handouts/headings/7.1.png)
 
-# Events
+# Sessions
 
-In this chapter, we're going to create our first **event**.
+When a user clicks on one of the player list items, a function is executed, and when this happens, we want to change the background color of that player's list item. This will create the effect of that player being selected. To achieve this, we're going to use a feature of Meteor known as **sessions**. 
 
-Events allow us to trigger the execution of code when a user clicks on a button, taps a key on their keyboard, or completes a number of other actions. To demonstrate this, add the following code to the `isClient` conditional:
+Sessions allow us to store small pieces of data that are not saved to the database and will not be remembered on return visits. This sort of data might not sound immediately useful, but as we'll see, it's a surprisingly versatile way to solve a lot of common problems.
 
-```js
-Template.leaderboard.events({});
-```
+# Creating a Session
 
-The `Template` keyword searches through the templates in our project. The `leaderboard` keyword is the name of the template to which we're about to attach some events. And the `events` keyword is what we use to define a block of events in the JSON format.
-
-# Creating an Event
-
-To create an event, first define an event type. In this case, we'll create a click event that will trigger whenever the user clicks anywhere within the bounds of the leaderboard template. Next, attach a function to the event. The code within this function will execute whenever the click event is triggered:
+The best way to understand how sessions work is to create one. So to begin, add the following code to the `click` event:
 
 ```js
 Template.leaderboard.events({
-	'click': function() { console.log('click'); }
+	'click .player': function() {
+		Session.set('selectedPlayer', 'test');
+}
 });
 ```
 
-The problem with the event we've created is that it's too generic. It triggers when the user clicks inside the bounds of the leaderboard template, but it'd be a lot more useful if it triggered when the user did something specific, such as clicking on a particular button.
+The first argument is the name of the session. This is a reference we'll use to retrieve the value of the session at a later time. The second argument is whatever data we want to store inside the session.
 
-# Event Selectors
-
-To achieve this we'll use **event selectors**. They allow us to attach events to specific HTML elements. If you've ever used jQuery before, this process will be familiar. But if not, then it should still be quite easy to grasp.
-
-Earlier, we placed list item tags inside the leaderboard template. The plan now is to make our event trigger when the user clicks on one of these elements. To do this, place a reference to the `li` tag right after the click event type:
+To then retrieve the value of this session, use a `Session.get` and pass through the name of a session to retrieve the value that's stored within that session.
 
 ```js
 Template.leaderboard.events({
-	'click li': function() { console.log('click'); }
+	'click .player': function() {
+		Session.set('selectedPlayer', 'test');
+		var selectedPlayer = Session.get('selectedPlayer');
+		console.log(selectedPlayer);
+}
 });
 ```
 
-Because of this change, you will now see that clicking on any of the list item elements will output a message to the console.
-
-The problem with this code is that if we had other list item elements inside this template that were not a part of the list of players, then the event would trigger when it wasn't supposed to trigger. To account for this, attach a class of `player` to the list item elements inside the `each` block:
-
-```html
-<li class="player"></li>
-```
-
-Make it so the event will trigger when any elements with the class of `player` are clicked:
-
-```js
-Template.leaderboard.events({
-	'click .player': function() { console.log('click'); }
-});
-```
+We could have done this without using sessions, but now that we're familiar with the syntax, we can do something that's a bit more interesting.
