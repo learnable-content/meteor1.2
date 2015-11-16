@@ -1,4 +1,4 @@
-![](Your_First_Meteor_Application_handouts/headings/10.3.png)
+![](headings/10.3.png)
 
 # One Leaderboard Per User
 
