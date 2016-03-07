@@ -8,7 +8,9 @@ if(Meteor.isClient){
   });
   Template.leaderboard.events({
     'click .player': function(){
-      console.log("You clicked a .player element");
+      Session.set('selectedPlayer', 'session value test');
+      var selectedPlayer = Session.get('selectedPlayer');
+      console.log(selectedPlayer);
     }
   });
 }
