@@ -5,16 +5,17 @@ if(Meteor.isClient){
     'player': function(){
       return PlayersList.find();
     }
+
   });
+  
   Template.leaderboard.events({
     'click .player': function(){
-      Session.set('selectedPlayer', 'session value test');
-      var selectedPlayer = Session.get('selectedPlayer');
-      console.log(selectedPlayer);
+      var playerId = this._id;
+      Session.set('selectedPlayer', playerId);
     }
   });
 }
 
 if(Meteor.isServer){
-  // server only code
+
 }
