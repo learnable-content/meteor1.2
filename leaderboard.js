@@ -35,7 +35,7 @@ if(Meteor.isClient){
     },
     'click .remove': function(){
       var selectedPlayer = Session.get('selectedPlayer');
-      PlayersList.remove({ _id: selectedPlayer });
+      Meteor.call('removePlayer', selectedPlayer);
     }
   });
   Template.addPlayerForm.events({
@@ -58,19 +58,21 @@ if(Meteor.isServer){
 
 Meteor.methods({
   'createPlayer': function(playerNameVar){
-    check(selectedPlayer, String);
-    var currentUserId = Meteor.userId();
-    if(currentUserId){
-    PlayersList.insert({
-        name: playerNameVar,
-        score: 0,
-        createdBy: currentUserId
-    });
-    console.log("You've Called a method");
-
-  } 
-  else {
-      
-      console.log("You're logged out!");
-    }
+      check(playerNameVar, String);
+      var currentUserId = Meteor.userId();
+      if(currentUserId){
+        PlayersList.insert({
+          name: playerNameVar,
+          score: 0,
+          createdBy: currentUserId
+        });
+      }
+  },
+  'removePlayer': function(selectedPlayer){
+      check(selectedPlayer, String);
+      var currentUserId = Meteor.userId();
+      if(currentUserId){
+          PlayersList.remove({ _id: selectedPlayer, createdBy: currentUserId });
+      }
+  }
 });
