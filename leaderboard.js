@@ -30,14 +30,21 @@ if(Meteor.isClient){
         var selectedPlayer = Session.get('selectedPlayer');
         PlayersList.update({ _id: selectedPlayer }, {$inc: {score: -5} });
     }
+    
   });
   Template.addPlayerForm.events({
     'submit form': function(event){
-        console.log('Form submitted')
+        event.preventDefault();
+        var playerNameVar = event.target.playerName.value;
+        PlayersList.insert({
+            name: playerNameVar,
+            score: 0
+        });
+        event.target.playerName.value = "";
     }
   });
 }
 
 if(Meteor.isServer){
- 
+  // server only code
 }
