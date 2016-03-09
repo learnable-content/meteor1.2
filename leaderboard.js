@@ -42,7 +42,7 @@ if(Meteor.isClient){
     'submit form': function(event){
         event.preventDefault();
         var playerNameVar = event.target.playerName.value;
-        Meteor.call('createPlayer');
+        Meteor.call('createPlayer', playerNameVar);
         event.target.playerName.value = "";
     }
   });
@@ -57,15 +57,20 @@ if(Meteor.isServer){
 
 
 Meteor.methods({
-  'createPlayer': function(){
+  'createPlayer': function(playerNameVar){
+    check(selectedPlayer, String);
     var currentUserId = Meteor.userId();
+    if(currentUserId){
     PlayersList.insert({
-        name: "David",
+        name: playerNameVar,
         score: 0,
         createdBy: currentUserId
     });
     console.log("You've Called a method");
 
-  }
-
+  } 
+  else {
+      
+      console.log("You're logged out!");
+    }
 });
