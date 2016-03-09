@@ -29,8 +29,11 @@ if(Meteor.isClient){
     'click .decrement': function(){
         var selectedPlayer = Session.get('selectedPlayer');
         PlayersList.update({ _id: selectedPlayer }, {$inc: {score: -5} });
+    },
+    'click .remove': function(){
+      var selectedPlayer = Session.get('selectedPlayer');
+      PlayersList.remove({ _id: selectedPlayer });
     }
-    
   });
   Template.addPlayerForm.events({
     'submit form': function(event){
