@@ -53,5 +53,5 @@ if(Meteor.isClient){
 }
 
 if(Meteor.isServer){
-  // server only code
+  console.log(PlayersList.find().fetch() );
 }
