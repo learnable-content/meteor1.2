@@ -3,7 +3,12 @@
 </head>
 <body>
     <h1>Leaderboard</h1>
-    {{> leaderboard}}
+    {{> loginButtons}}
+    {{#if currentUser}}
+        {{> leaderboard}}
+    {{else}}
+    <p>Register or login to manage a leaderboard!</p>
+    {{/if}}
 </body>
 
 <template name="leaderboard">
