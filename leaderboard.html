@@ -5,15 +5,15 @@
     <h1>Leaderboard</h1>
     {{> loginButtons}}
     {{#if currentUser}}
-        {{> leaderboard}}
-    {{else}}
-    <p>Register or login to manage a leaderboard!</p>
-    {{/if}}
+    {{> leaderboard}}
+
+   {{else}} 
+   <p> Register or login to manage a leaderboard!</p>
 </body>
 
 <template name="leaderboard">
-    {{> addPlayerForm}}
-    <ul>
+    {{#if currentUser}}
+        {{> addPlayerForm}}
         {{#each player}}
             <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
         {{/each}}
@@ -25,12 +25,16 @@
                 <button class="remove">Remove Player</button>
             </li>
         {{/if}}
-    </ul>
+    {{else}}
+        <p>You must be logged-in to see this content.</p>
+    {{/if}}
 </template>
 
 <template name="addPlayerForm">
     <form>
-        <input type="text" name="playerName">
-        <input type="submit" value="Add Player">
+        <p>
+            <input type="text" name="playerName">
+            <input type="submit" value="Add Player">
+        </p>
     </form>
 </template>
