@@ -64,7 +64,7 @@ Meteor.methods({
         score: 0,
         createdBy: currentUserId
     });
-    console.log("You've Called a method")
+    console.log("You've Called a method");
 
   }
 
