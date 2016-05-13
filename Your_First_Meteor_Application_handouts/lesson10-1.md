@@ -4,11 +4,9 @@
 
 The biggest problem with our application is that it only supports a single list of players. This means there can only be one user of the application at any one time, which isn't very useful for an application on the web. To fix this, we're going to add a user accounts system to our project, which is actually one of the simplest things we can do with the framework. With this system in place, users will be able to register and login. Logged-out users won't see the parts of the interface they're not meant to see. Every user will have their own unique leaderboard.
 
-But before building this system, we have to learn about Meteor's **packages**. Packages are basically plugins that add features to a project in a matter of seconds, which reduces the amount of code we need to write.
+To add a user accounts system to our project, we can install what is known as a **login provider package**. This package will make it extremely easy to create the back-end of an accounts system for a project.
 
 # Packages
-
-By default, every Meteor project has local access to a number of official packages. These packages, designed by the Meteor development group, will be used by developers at some point or another, but not necessarily for every single project. To add a user accounts system to our project, we can install what is known as a login provider package. This package will make it extremely easy to create the backend of an accounts system for a project.
 
 Just run the following command inside the command line:
 
@@ -24,4 +22,4 @@ To demonstrate this, enter the following into the console:
 Meteor.users
 ```
 
-The returned information will confirm that this is a regular collection. We can even use the `find` and `fetch` functions, but since there aren't any registered users at the moment, no data will be returned.
+The returned information will confirm that this is a regular collection. We can even use the `find` and `fetch` functions, but since there aren't any registered users at the moment, no data will be returned. This package also provides us with a number of useful functions, and we'll see a couple of these as we progress through the chapter.
